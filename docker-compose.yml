@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  stegsolve:
+    build: ./
+    image: stegsolve:latest
+    container_name: stegsolve
+    environment:
+      - DISPLAY=$IP:0
+    volumes:
+      - ./:/home/stegsolve
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir : /home/stegsolve
+    command: java -jar Stegsolve.jar
